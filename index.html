@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Solar en AR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      display: inline-block;
+      margin-top: 50px;
+      padding: 15px 25px;
+      font-size: 18px;
+      color: white;
+      background-color: #0078d7;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    a:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌌 Sistema Solar en Realidad Aumentada</h1>
+  <p>Toca el botón para abrir el modelo en AR.</p>
+
+  <script>
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/android/i.test(userAgent)) {
+      window.location.href = "solar_system_animation.glb#model-viewer-no-ar-fallback";
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      window.location.href = "solar_system_animation.usdz";
+    } else {
+      document.write('<a href="solar_system_animation.glb">Ver modelo 3D aquí</a>');
+    }
+  </script>
+</body>
+</html>
